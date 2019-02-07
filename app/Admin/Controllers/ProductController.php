@@ -11,6 +11,7 @@ use Encore\Admin\Show;
 use App\Mstproduct;
 use App\Mstproductcategory;
 use App\Mstcurrency;
+use URL;
 
 class ProductController extends Controller
 {
@@ -115,7 +116,8 @@ class ProductController extends Controller
         $show->id('ID');
         $show->name('Product Name');
         $show->created_at('Created at');
-        $show->updated_at('Updated at');
+        $show->divider();
+        $show->featured_img()->image();
 
         return $show;
     }

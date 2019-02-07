@@ -8,10 +8,9 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
-use App\Syscompany;
 use App\Mstcurrency;
 
-class CompanyController extends Controller
+class CurrencyController extends Controller
 {
     use HasResourceActions;
 
@@ -24,7 +23,7 @@ class CompanyController extends Controller
     public function index(Content $content)
     {
         return $content
-            ->header('Company Properties')
+            ->header('Currencies')
             ->body($this->grid());
     }
 
@@ -67,7 +66,7 @@ class CompanyController extends Controller
     public function create(Content $content)
     {
         return $content
-            ->header('Company profile')
+            ->header('Currencies')
             ->body($this->form());
     }
 
@@ -78,15 +77,12 @@ class CompanyController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new Syscompany);
+        $grid = new Grid(new Mstcurrency);
 
         $grid->id('ID')->sortable();
-        $grid->name('name');
-        $grid->address('address');
-        $grid->latitude('latitude');
-        $grid->longitude('longitude');
-        $grid->main_phone('main_phone');
-        $grid->main_website('main_website');
+        $grid->code('currency code');
+        $grid->name('currency name');
+        $grid->exc_rate('exchange rate');        
         $grid->created_at('Created at');
         $grid->updated_at('Updated at');
 
@@ -101,15 +97,14 @@ class CompanyController extends Controller
      */
     protected function detail($id)
     {
-        $show = new Show(Syscompany::findOrFail($id));
+        $show = new Show(Mstcurrency::findOrFail($id));
 
         $show->id('ID');
-        $show->name('name');
-        $show->address('address');
-        $show->latitude('latitude');
-        $show->longitude('longitude');
-        $show->main_phone('main_phone');
-        $show->main_website('main_website');
+        $show->code('currency code');
+        $show->name('currency name');
+        $show->exc_rate('exchange rate');        
+        $show->created_at('Created at');
+        $show->updated_at('Updated at');
 
         return $show;
     }
@@ -121,15 +116,12 @@ class CompanyController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new Syscompany);
+        $form = new Form(new Mstcurrency);
 
         $form->display('id', 'ID');
-        $form->text('name', 'company name')->rules('required');
-        $form->text('address', 'company address')->rules('required');
-        $form->text('latitude', 'latitude')->rules('required');
-        $form->text('longitude', 'longitude')->rules('required');
-        $form->text('main_phone', 'main phone')->rules('required');
-        $form->text('main_website', 'main web url')->rules('required');
+        $form->text('code', 'currency code')->rules('required');
+        $form->text('name', 'currency name')->rules('required');        
+        $form->number('exc_rate', 'exchange rate')->rules('required');
 
         return $form;
     }
