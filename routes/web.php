@@ -1,5 +1,7 @@
 <?php
 
+use App\Mstproduct;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,17 +13,13 @@
 |
 */
 
-Route::get('/', function(){
-    return view('pages.booking');
-});
+Route::get('/', 'BookingController@get_bestoffers');
 
 Route::get('/blog', function(){
     return view('pages.blog');
 });
 
-Route::get('/packages', function(){
-    return view('pages.packages');
-});
+Route::get('/packages', 'PackageController@get_list');
 
 Route::get('/aboutus', function(){
     return view('pages.aboutus');

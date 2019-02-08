@@ -10,152 +10,46 @@
         <div class="row offers_items">
 
             <!-- Offers Item -->
-            <div class="col-lg-6 offers_col">
-                <div class="offers_item">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="offers_image_container">
-                                <!-- Image by https://unsplash.com/@kensuarez -->
-                                <div class="offers_image_background" style="background-image:url({{ asset('vendor/theme-travelix/images/offer_1.jpg') }})"></div>
-                                <div class="offer_name"><a href="#">grand castle</a></div>
+            @foreach($products as $k=>$v)
+                <div class="col-lg-6 offers_col">
+                    <div class="offers_item">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="offers_image_container">
+                                    <div class="offers_image_background" style="background-image:url({{ asset('uploads/'.$v->featured_img) }})"></div>
+                                    <div class="offer_name"><a href="#">{{ $v->name }}</a></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="offers_content">
-                                <div class="offers_price">$70<span>per night</span></div>
-                                <div class="rating_r rating_r_4 offers_rating">
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
+                            <div class="col-lg-6">
+                                <div class="offers_content">                                    
+                                    @if($v->show_price==1)
+                                    <div class="offers_price">{{ $v->currency_code ." ". $v->price }}<span></span></div>
+                                    @else
+                                    <div class="offers_price">Negotiable price<span></span></div>
+                                    @endif
+                                    <div class="rating_r rating_r_{{ $v->rating }} offers_rating" data-rating="{{ $v->rating }}">
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                    </div>
+                                    <p class="offers_text">{{ strip_tags(substr($v->desc, 0, 150)) . "..." }}</p>
+                                    <div class="offers_icons">
+                                        <ul class="offers_icons_list">
+                                            <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/post.png') }}" alt=""></li>
+                                            <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/compass.png') }}" alt=""></li>
+                                            <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/bicycle.png') }}" alt=""></li>
+                                            <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/sailboat.png') }}" alt=""></li>
+                                        </ul>
+                                    </div>
+                                    <div class="offers_link"><a href="offers.html">more</a></div>
                                 </div>
-                                <p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
-                                <div class="offers_icons">
-                                    <ul class="offers_icons_list">
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/post.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/compass.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/bicycle.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/sailboat.png') }}" alt=""></li>
-                                    </ul>
-                                </div>
-                                <div class="offers_link"><a href="offers.html">read more</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Offers Item -->
-            <div class="col-lg-6 offers_col">
-                <div class="offers_item">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="offers_image_container">
-                                <!-- Image by Egzon Bytyqi -->
-                                <div class="offers_image_background" style="background-image:url({{ asset('vendor/theme-travelix/images/offer_2.jpg') }})"></div>
-                                <div class="offer_name"><a href="#">turkey hills</a></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="offers_content">
-                                <div class="offers_price">$50<span>per night</span></div>
-                                <div class="rating_r rating_r_4 offers_rating">
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
-                                </div>
-                                <p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
-                                <div class="offers_icons">
-                                    <ul class="offers_icons_list">
-                                    <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/post.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/compass.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/bicycle.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/sailboat.png') }}" alt=""></li>
-                                    </ul>
-                                </div>
-                                <div class="offers_link"><a href="offers.html">read more</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Offers Item -->
-            <div class="col-lg-6 offers_col">
-                <div class="offers_item">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="offers_image_container">
-                                <!-- Image by https://unsplash.com/@nevenkrcmarek -->
-                                <div class="offers_image_background" style="background-image:url({{ asset('vendor/theme-travelix/images/offer_3.jpg') }})"></div>
-                                <div class="offer_name"><a href="#">island dream</a></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="offers_content">
-                                <div class="offers_price">$90<span>per night</span></div>
-                                <div class="rating_r rating_r_4 offers_rating">
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
-                                </div>
-                                <p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
-                                <div class="offers_icons">
-                                    <ul class="offers_icons_list">
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/post.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/compass.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/bicycle.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/sailboat.png') }}" alt=""></li>
-                                    </ul>
-                                </div>
-                                <div class="offers_link"><a href="offers.html">read more</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Offers Item -->
-            <div class="col-lg-6 offers_col">
-                <div class="offers_item">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="offers_image_container">
-                                <!-- Image by https://unsplash.com/@mantashesthaven -->
-                                <div class="offers_image_background" style="background-image:url({{ asset('vendor/theme-travelix/images/offer_4.jpg') }})"></div>
-                                <div class="offer_name"><a href="#">travel light</a></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="offers_content">
-                                <div class="offers_price">$30<span>per night</span></div>
-                                <div class="rating_r rating_r_4 offers_rating">
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
-                                    <i></i>
-                                </div>
-                                <p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
-                                <div class="offers_icons">
-                                    <ul class="offers_icons_list">
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/post.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/compass.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/bicycle.png') }}" alt=""></li>
-                                        <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/sailboat.png') }}" alt=""></li>
-                                    </ul>
-                                </div>
-                                <div class="offers_link"><a href="offers.html">read more</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>
@@ -180,6 +74,7 @@
                     <div class="owl-carousel owl-theme test_slider">
 
                         <!-- Testimonial Item -->
+                        @foreach($testimonies as $x=>$y)
                         <div class="owl-item">
                             <div class="test_item">
                                 <div class="test_image"><img src="{{ asset('vendor/theme-travelix/images/test_1.jpg') }}" alt="https://unsplash.com/@anniegray"></div>
@@ -187,105 +82,16 @@
                                 <div class="test_content_container">
                                     <div class="test_content">
                                         <div class="test_item_info">
-                                            <div class="test_name">carla smith</div>
-                                            <div class="test_date">May 24, 2017</div>
+                                            <div class="test_name">{{ $y->guest_name }}</div>
+                                            <div class="test_date">{{ $y->post_date }}</div>
                                         </div>
-                                        <div class="test_quote_title">" Best holliday ever "</div>
-                                        <p class="test_quote_text">Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.</p>
+                                        <div class="test_quote_title">" {{ $y->subject }} "</div>
+                                        <p class="test_quote_text">{{ strip_tags(substr($y->message, 0, 100)) . "..." }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Testimonial Item -->
-                        <div class="owl-item">
-                            <div class="test_item">
-                                <div class="test_image"><img src="{{ asset('vendor/theme-travelix/images/test_2.jpg') }}" alt="https://unsplash.com/@tschax"></div>
-                                <div class="test_icon"><img src="{{ asset('vendor/theme-travelix/images/island_t.png') }}" alt=""></div>
-                                <div class="test_content_container">
-                                    <div class="test_content">
-                                        <div class="test_item_info">
-                                            <div class="test_name">carla smith</div>
-                                            <div class="test_date">May 24, 2017</div>
-                                        </div>
-                                        <div class="test_quote_title">" Best holliday ever "</div>
-                                        <p class="test_quote_text">Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial Item -->
-                        <div class="owl-item">
-                            <div class="test_item">
-                                <div class="test_image"><img src="{{ asset('vendor/theme-travelix/images/test_3.jpg') }}" alt="https://unsplash.com/@seefromthesky"></div>
-                                <div class="test_icon"><img src="{{ asset('vendor/theme-travelix/images/kayak.png') }}" alt=""></div>
-                                <div class="test_content_container">
-                                    <div class="test_content">
-                                        <div class="test_item_info">
-                                            <div class="test_name">carla smith</div>
-                                            <div class="test_date">May 24, 2017</div>
-                                        </div>
-                                        <div class="test_quote_title">" Best holliday ever "</div>
-                                        <p class="test_quote_text">Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial Item -->
-                        <div class="owl-item">
-                            <div class="test_item">
-                                <div class="test_image"><img src="{{ asset('vendor/theme-travelix/images/test_2.jpg') }}" alt=""></div>
-                                <div class="test_icon"><img src="{{ asset('vendor/theme-travelix/images/island_t.png') }}" alt=""></div>
-                                <div class="test_content_container">
-                                    <div class="test_content">
-                                        <div class="test_item_info">
-                                            <div class="test_name">carla smith</div>
-                                            <div class="test_date">May 24, 2017</div>
-                                        </div>
-                                        <div class="test_quote_title">" Best holliday ever "</div>
-                                        <p class="test_quote_text">Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial Item -->
-                        <div class="owl-item">
-                            <div class="test_item">
-                                <div class="test_image"><img src="{{ asset('vendor/theme-travelix/images/test_1.jpg') }}" alt=""></div>
-                                <div class="test_icon"><img src="{{ asset('vendor/theme-travelix/images/backpack.png') }}" alt=""></div>
-                                <div class="test_content_container">
-                                    <div class="test_content">
-                                        <div class="test_item_info">
-                                            <div class="test_name">carla smith</div>
-                                            <div class="test_date">May 24, 2017</div>
-                                        </div>
-                                        <div class="test_quote_title">" Best holliday ever "</div>
-                                        <p class="test_quote_text">Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial Item -->
-                        <div class="owl-item">
-                            <div class="test_item">
-                                <div class="test_image"><img src="{{ asset('vendor/theme-travelix/images/test_3.jpg') }}" alt=""></div>
-                                <div class="test_icon"><img src="{{ asset('vendor/theme-travelix/images/kayak.png') }}" alt=""></div>
-                                <div class="test_content_container">
-                                    <div class="test_content">
-                                        <div class="test_item_info">
-                                            <div class="test_name">carla smith</div>
-                                            <div class="test_date">May 24, 2017</div>
-                                        </div>
-                                        <div class="test_quote_title">" Best holliday ever "</div>
-                                        <p class="test_quote_text">Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
 
                     </div>
 

@@ -69,7 +69,9 @@
 .offers_item
 {
 	width: 100%;
-	margin-bottom: 46px;
+	padding-bottom: 26px;
+    border-bottom: 1px solid #31124b4a;
+    margin-bottom: 23px;
 }
 .offers_item:last-child
 {

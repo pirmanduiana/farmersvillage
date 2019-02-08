@@ -16,5 +16,6 @@ Route::group([
     $router->resource('/company', 'CompanyController');
     $router->resource('/product-category', 'ProductCategoryController');
     $router->resource('/product', 'ProductController');
+    $router->resource('/testimony', 'TestimoniesController');
 
 });

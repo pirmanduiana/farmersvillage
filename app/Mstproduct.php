@@ -10,7 +10,7 @@ class Mstproduct extends Model
     protected $table = "mst_product";
     protected $fillable = [        
         'category_id', 'name', 'desc', 'min_pax', 'max_pax', 'currency_id',
-        'price', 'rating', 'featured_img'
+        'price', 'show_price','rating', 'featured_img'
     ];
 
     public function currency()
