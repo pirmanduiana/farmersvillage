@@ -43,7 +43,7 @@
                                             <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/sailboat.png') }}" alt=""></li>
                                         </ul>
                                     </div>
-                                    <div class="offers_link"><a href="offers.html">more</a></div>
+                                    <div class="offers_link"><a href="{{ url('/product/'.$v->id) }}">more</a></div>
                                 </div>
                             </div>
                         </div>

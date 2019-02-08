@@ -13,14 +13,12 @@ use App\Mstproduct;
 |
 */
 
-Route::get('/', 'BookingController@get_bestoffers');
+Route::get('/', 'BookingController@index');
 
-Route::get('/blog', function(){
-    return view('pages.blog');
-});
+Route::get('/blog', 'BlogController@index');
 
-Route::get('/packages', 'PackageController@get_list');
+Route::get('/packages', 'PackageController@index');
 
-Route::get('/aboutus', function(){
-    return view('pages.aboutus');
-});
+Route::get('/aboutus', 'PageController@about_page');
+
+Route::get('/product/{id}', 'PageController@product_page');

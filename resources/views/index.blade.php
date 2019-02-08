@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-<title>{{ config('admin.landing-app') }}</title>
+<title>{{ $company->name }}</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travelix Project">
@@ -45,7 +45,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-						<div class="phone">+45 345 3324 56789</div>
+						<div class="phone">{{ $company->main_phone }}</div>
 						<div class="social">
 							<ul class="social_list">
 								<li class="social_list_item"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
@@ -495,9 +495,10 @@
 					<div class="footer_col">
 						<div class="footer_content footer_about">
 							<div class="logo_container footer_logo">
-								<div class="logo"><a href="#"><img src="{{ asset('vendor/theme-travelix/images/logo.png') }}" alt="">travelix</a></div>
+								<div class="logo"><a href="#"><img src="{{ asset('vendor/theme-travelix/images/logo.png') }}" alt="">Social media</a></div>
 							</div>
-							<p class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula pretium.</p>
+							<p class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula pretium.							
+							</p>
 							<ul class="footer_social_list">
 								<li class="footer_social_item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
 								<li class="footer_social_item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
@@ -567,19 +568,19 @@
 							<ul class="contact_info_list">
 								<li class="contact_info_item d-flex flex-row">
 									<div><div class="contact_info_icon"><img src="{{ asset('vendor/theme-travelix/images/placeholder.svg') }}" alt=""></div></div>
-									<div class="contact_info_text">4127 Raoul Wallenber 45b-c Gibraltar</div>
+									<div class="contact_info_text">{{ $company->address }}</div>
 								</li>
 								<li class="contact_info_item d-flex flex-row">
 									<div><div class="contact_info_icon"><img src="{{ asset('vendor/theme-travelix/images/phone-call.svg') }}" alt=""></div></div>
-									<div class="contact_info_text">2556-808-8613</div>
+									<div class="contact_info_text">{{ $company->main_phone }}</div>
 								</li>
 								<li class="contact_info_item d-flex flex-row">
 									<div><div class="contact_info_icon"><img src="{{ asset('vendor/theme-travelix/images/message.svg') }}" alt=""></div></div>
-									<div class="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top">contactme@gmail.com</a></div>
+									<div class="contact_info_text"><a href="mailto:{{ $company->main_email }}?Subject=Hello..." target="_top">{{ $company->main_email }}</a></div>
 								</li>
 								<li class="contact_info_item d-flex flex-row">
 									<div><div class="contact_info_icon"><img src="{{ asset('vendor/theme-travelix/images/planet-earth.svg') }}" alt=""></div></div>
-									<div class="contact_info_text"><a href="https://colorlib.com">www.colorlib.com</a></div>
+									<div class="contact_info_text"><a href="{{ $company->main_website }}">{{ $company->main_website }}</a></div>
 								</li>
 							</ul>
 						</div>
@@ -598,7 +599,7 @@
 				<div class="col-lg-3 order-lg-1 order-2  ">
 					<div class="copyright_content d-flex flex-row align-items-center">
 						<div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <a href="{{ $company->main_website }}" target="_blank">{{ $company->name }}</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
 					</div>
@@ -607,10 +608,10 @@
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="#">home</a></li>
-								<li class="footer_nav_item"><a href="about.html">about us</a></li>
-								<li class="footer_nav_item"><a href="offers.html">offers</a></li>
-								<li class="footer_nav_item"><a href="blog.html">news</a></li>
+								<li class="footer_nav_item"><a href="/">home</a></li>
+								<li class="footer_nav_item"><a href="/aboutus">about us</a></li>
+								<li class="footer_nav_item"><a href="/packages">all packages</a></li>
+								<li class="footer_nav_item"><a href="/blog">blog</a></li>
 								<li class="footer_nav_item"><a href="contact.html">contact</a></li>
 							</ul>
 						</div>
