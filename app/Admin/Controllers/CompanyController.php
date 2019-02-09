@@ -86,7 +86,7 @@ class CompanyController extends Controller
         $grid->latitude('latitude');
         $grid->longitude('longitude');
         $grid->main_phone('main_phone');
-        $grid->main_website('main_website');
+        $grid->main_website('main_website')->link();
         $grid->created_at('Created at');
         $grid->updated_at('Updated at');
 
@@ -130,6 +130,12 @@ class CompanyController extends Controller
         $form->text('longitude', 'longitude')->rules('required');
         $form->text('main_phone', 'main phone')->rules('required');
         $form->text('main_website', 'main web url')->rules('required');
+        $form->text('main_email', 'main email')->rules('required');
+
+        $form->divider();
+
+        $form->image('featured_img', 'Featured image')->rules('required');
+        $form->ckeditor('description', 'description.')->rules('required');
 
         return $form;
     }
