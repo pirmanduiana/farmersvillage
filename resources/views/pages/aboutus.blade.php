@@ -1,6 +1,12 @@
 @extends('index')
 @section('content')
 
+<style>
+    .intro_image_about img {
+        width: 100%;
+    }
+</style>
+
 <!-- Intro -->
 <div class="intro">
     <div class="container">
