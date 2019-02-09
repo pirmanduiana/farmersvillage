@@ -82,7 +82,15 @@
 
 @media only screen and (max-width: 959px)
 {
-	
+	.intro_content {
+        margin-top: 15px;
+    }
+    .intro_title, .intro_image_about {
+        text-align: center;
+    }
+    .intro_image_about img {
+        width: 100%;
+    }
 }
 
 /************
@@ -100,7 +108,15 @@
 
 @media only screen and (max-width: 767px)
 {
-	
+	.intro_content {
+        margin-top: 15px;
+    }
+    .intro_title, .intro_image_about {
+        text-align: center;
+    }
+    .intro_image_about img {
+        width: 100%;
+    }
 }
 
 /************
@@ -109,7 +125,15 @@
 
 @media only screen and (max-width: 539px)
 {
-	
+	.intro_content {
+        margin-top: 15px;
+    }
+    .intro_title, .intro_image_about {
+        text-align: center;
+    }
+    .intro_image_about img {
+        width: 100%;
+    }
 }
 
 /************
