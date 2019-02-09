@@ -7,7 +7,8 @@
 
 .blog
 {
-	padding-top: 108px;
+	/* modified: padding-top: 108px; */
+	padding-top: 45px;
 	padding-bottom: 108px;
 }
 .blog_post_container
