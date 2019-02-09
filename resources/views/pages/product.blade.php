@@ -13,6 +13,9 @@
     .booking-button .search_button {
         background: #9152f8;
     }
+    .img-related-services {
+        width: 69px;
+    }
 </style>
 
 <div class="blog">
@@ -57,17 +60,36 @@
             <div class="col-lg-3 sidebar_col">
                 
                 <!-- Sidebar Archives -->
-                <div class="sidebar_categories" style="margin-top: 7px;">
+                <!-- <div class="sidebar_categories" style="margin-top: 7px;">
                     <div class="sidebar_title">Related services</div>
                     <div class="sidebar_list">
                         <ul>
-                            <li><a href="#">Travel</a></li>
-                            <li><a href="#">Exotic Destinations</a></li>
-                            <li><a href="#">City Breaks</a></li>
-                            <li><a href="#">Travel Tips</a></li>
-                            <li><a href="#">Lifestyle & Travel</a></li>
-                            <li><a href="#">City Breaks</a></li>
-                            <li><a href="#">Uncategorized</a></li>
+                            @foreach($related_product_of_same_category as $j=>$k)
+                            <li><a href="{{ url('/product/'.$k->id) }}">{{$k->name}}</a></li>                            
+                            @endforeach
+                        </ul>
+                    </div>
+                </div> -->
+
+                <div class="sidebar_latest_posts" style="margin-top: 7px;">
+                    <div class="sidebar_title">Related services</div>
+                    <div class="latest_posts_container">
+                        <ul>
+                            <!-- Latest Post -->
+                            @foreach($related_product_of_same_category as $j=>$k)
+                            <li class="latest_post clearfix">
+                                <div class="latest_post_image">
+                                    <a href="{{ url('/product/'.$k->id) }}"><img class="img-related-services" src="{{ asset('uploads/'.$k->featured_img) }}" alt=""></a>
+                                </div>
+                                <div class="latest_post_content">
+                                    <div class="latest_post_title trans_200"><a href="{{ url('/product/'.$k->id) }}">{{$k->name}}</a></div>
+                                    <div class="latest_post_meta">
+                                        <div class="latest_post_author trans_200"><a href="#">by Admin</a></div>
+                                        <div class="latest_post_date trans_200"><a href="#">{{ date_format($k->created_at,"M d, Y") }}</a></div>
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
