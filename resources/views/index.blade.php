@@ -497,7 +497,8 @@
 							<div class="logo_container footer_logo">
 								<div class="logo"><a href="#"><img src="{{ asset('vendor/theme-travelix/images/logo.png') }}" alt="">Social media</a></div>
 							</div>
-							<p class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula pretium.							
+							<p class="footer_about_text" style="text-align:justify; margin-top:-16px;">
+								Our social media platforms are managed by our communications and digital teams. We'll keep our content up to date, regular and engaging. Answering any questions or comments you have within 24 hours and signpost you to relevant information that can help.
 							</p>
 							<ul class="footer_social_list">
 								<li class="footer_social_item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
