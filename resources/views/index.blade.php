@@ -491,11 +491,11 @@
 			<div class="row">
 
 				<!-- Footer Column -->
-				<div class="col-lg-3 footer_column">
+				<!-- <div class="col-lg-3 footer_column">
 					<div class="footer_col">
 						<div class="footer_content footer_about">
 							<div class="logo_container footer_logo">
-								<div class="logo"><a href="#"><img src="{{ asset('vendor/theme-travelix/images/logo.png') }}" alt="">Social media</a></div>
+								<div class="footer_title">Follow us</div>
 							</div>
 							<p class="footer_about_text" style="text-align:justify; margin-top:-16px;">
 								Our social media platforms are managed by our communications and digital teams. We'll keep our content up to date, regular and engaging. Answering any questions or comments you have within 24 hours and signpost you to relevant information that can help.
@@ -509,12 +509,23 @@
 							</ul>
 						</div>
 					</div>
+				</div> -->
+				<div class="col-lg-3 footer_column">
+					<div class="footer_col">
+						<div class="footer_title">Follow us</div>
+						<div class="footer_content footer_blog">														
+							<ul class="footer_social_list">
+								<li class="footer_social_item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+								<li class="footer_social_item"><a href="#"><i class="fa fa-instagram"></i></a></li>								
+							</ul>
+						</div>
+					</div>
 				</div>
 
 				<!-- Footer Column -->
 				<div class="col-lg-3 footer_column">
 					<div class="footer_col">
-						<div class="footer_title">blog posts</div>
+						<div class="footer_title">blog</div>
 						<div class="footer_content footer_blog">
 							
 							<!-- Footer blog item -->
@@ -535,15 +546,6 @@
 								</div>
 							</div>
 
-							<!-- Footer blog item -->
-							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="{{ asset('vendor/theme-travelix/images/footer_blog_3.jpg') }}" alt="https://unsplash.com/@bergeryap87"></div>
-								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
-								</div>
-							</div>
-
 						</div>
 					</div>
 				</div>
@@ -551,13 +553,13 @@
 				<!-- Footer Column -->
 				<div class="col-lg-3 footer_column">
 					<div class="footer_col">
-						<div class="footer_title">Visitors Stats</div>
+						<div class="footer_title">Visitors</div>
 						<div class="footer_content footer_tags">
 							<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/482486/t/0"></script>
 						</div>
-						<div class="hit_counter">
+						<!-- <div class="hit_counter">
 							<script type="text/javascript" src="//counter.websiteout.net/js/7/0/0/0"></script>
-						</div>
+						</div> -->
 					</div>
 				</div>
 
@@ -567,10 +569,10 @@
 						<div class="footer_title">contact info</div>
 						<div class="footer_content footer_contact">
 							<ul class="contact_info_list">
-								<li class="contact_info_item d-flex flex-row">
+								<!-- <li class="contact_info_item d-flex flex-row">
 									<div><div class="contact_info_icon"><img src="{{ asset('vendor/theme-travelix/images/placeholder.svg') }}" alt=""></div></div>
 									<div class="contact_info_text">{{ $company->address }}</div>
-								</li>
+								</li> -->
 								<li class="contact_info_item d-flex flex-row">
 									<div><div class="contact_info_icon"><img src="{{ asset('vendor/theme-travelix/images/phone-call.svg') }}" alt=""></div></div>
 									<div class="contact_info_text">{{ $company->main_phone }}</div>

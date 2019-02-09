@@ -1151,9 +1151,9 @@ section
 	display: inline-block;
 	width: 31px;
 	height: 31px;
-	border: solid 1px #fa9e1b;
+	/* modified border: solid 1px #fa9e1b;
 	border-radius: 50%;
-	text-align: center;
+	text-align: center; */
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1190,14 +1190,14 @@ section
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
-.footer_social_item:hover
+/* .footer_social_item:hover
 {
 	background: #fa9e1b;
 }
 .footer_social_item:hover a i
 {
 	color: #31124b;
-}
+} */
 
 /*********************************
 11.2 Footer - Blog
