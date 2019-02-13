@@ -7,6 +7,12 @@ use App\Mstproduct;
 use App\Trntestimonial;
 use DB;
 use App\Syscompany;
+use App\Mstcustomer;
+use App\Trnbooking;
+use Mail;
+use App\Mail\Productbooking;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class BookingController extends Controller
 {
@@ -18,6 +24,75 @@ class BookingController extends Controller
         $company = Syscompany::first();
         
         return view('pages.booking', compact('products','testimonies','company'));
+    }
+
+    private function booking_validate_store(Request $request)
+    {
+        return $this->validate($request, [
+            'booking_date' => 'required|date',
+            'email' => 'required',
+            'full_name' => 'required',
+            'notes' => 'required',
+            'country_code' => 'required',
+            'pax' => 'required',
+            'phone' => 'required',
+            'g-recaptcha-response' => 'required|recaptcha'
+        ]);
+    }
+    
+    private function random()
+    {        
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $pin = mt_rand(1000000, 9999999)
+            . mt_rand(1000000, 9999999)
+            . $characters[rand(0, strlen($characters) - 1)];
+        $string = str_shuffle($pin);
+
+        return $string;
+    }
+
+    public function get_booking_form($product_id)
+    {
+        $client = new Client([
+            'base_uri' => 'https://restcountries.eu/rest/v2/'
+        ]);
+        $response = $client->request('GET', 'all');
+        $response = json_decode($response->getBody(), true);
+        $countries = [];
+        foreach($response as $k=>$v){
+            $countries[$v["alpha2Code"]] = $v["name"];
+        }
+
+        return view('pages.includes.booking_form', compact('countries'));
+    }
+
+    public function post_booking_form(Request $request)
+    {
+        $this->booking_validate_store($request);
+        // store mst_customer
+        $store_customer = Mstcustomer::create([
+            "full_name"=>$request->full_name, "country_code"=>$request->country_code,
+            "email"=>$request->email, "phone"=>$request->phone
+        ]);
+        if (!empty($store_customer)) {
+            // store trn_booking
+            $store_booking = Trnbooking::create([
+                "customer_id"=>$store_customer->id,
+                "product_id"=>$request->product_id,
+                "booking_code"=>$this->random(),
+                "booking_date"=>$request->booking_date,
+                "pax"=>$request->pax,
+                "notes"=>$request->notes
+            ]);
+            $rsv_email = Syscompany::first()->main_email;
+            if (!empty($store_booking)) {
+                Mail::to($request->email)
+                ->bcc($rsv_email)
+                ->send(new Productbooking($request));
+                return response()->json($store_booking);
+            }
+        }
+        return response()->json(["error"]);
     }
 
 }

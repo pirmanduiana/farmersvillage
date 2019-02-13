@@ -22,12 +22,16 @@
 
 <!-- booking -->
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/styles/bootstrap4/bootstrap.min.css') }}">
-<link href="{{ asset('vendor/theme-travelix/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/plugins/OwlCarousel2-2.2.1/animate.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/styles/main_styles.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/styles/responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('vendor/adminlte/datepicker/bootstrap-datepicker.min.css') }}">
+
+<!-- select2 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
 </head>
 
@@ -652,6 +656,11 @@
 <script src="{{ asset('vendor/theme-travelix/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
 <script src="{{ asset('vendor/theme-travelix/plugins/easing/easing.js') }}"></script>
 <script src="{{ asset('vendor/theme-travelix/js/custom.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="{{ asset('vendor/adminlte/datepicker/bootstrap-datepicker.min.js') }}"></script>
+
+@yield('javascript')
 
 </body>
 </html>

@@ -49,7 +49,7 @@
                                                 <li class="offers_icons_item"><img src="{{ asset('vendor/theme-travelix/images/sailboat.png') }}" alt=""></li>
                                             </ul>
                                         </div>
-                                        <div class="button book_button"><a href="{{ url('/product/'.$v->id) }}">more<span></span><span></span><span></span></a></div>                                        
+                                        <div class="button book_button"><a href="{{ url('/product/'.$v->id) }}">more<span></span><span></span><span></span></a></div>                         
                                         <div class="offer_reviews">
                                             <div class="offer_reviews_content">
                                                 <div class="offer_reviews_title">very good</div>
@@ -69,3 +69,12 @@
 
 </div>
 @endsection
+
+@section('javascript')
+<script>
+    $(document).ready(function(){
+        console.log("all packages");
+    });
+</script>
+@parent
+@stop

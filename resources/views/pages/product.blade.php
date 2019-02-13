@@ -16,6 +16,9 @@
     .img-related-services {
         width: 69px;
     }
+    .booking-form {
+        margin-top: 35px;
+    }
 </style>
 
 <div class="blog">
@@ -36,19 +39,27 @@
                                 <div class="blog_post_day">01</div>
                                 <div class="blog_post_month">Dec, 2017</div>                                
                             </div>
-                        </div> -->                        
+                        </div> -->
+                        <input type="hidden" value="{{ $product->id }}" id="this_id">
                         <div class="blog_post_title"><a href="#">{{ $product->name }}</a></div>
                         <div class="blog_post_meta" style="margin-top: 0px;">
                             <ul>
                                 <li class="blog_post_meta_item"><a href="">{{ $product->category_name }}</a></li>
-                                <li class="blog_post_meta_item"><a href="">{{ $product->created_at }}</a></li>
+                                <li class="blog_post_meta_item"><a href="">{{ date_format($product->created_at,"M d, Y") }}</a></li>
                             </ul>
                         </div>
                         <div class="blog_post_text">                            
                             <p>{!! $product->desc !!}</p>
                         </div>
+                        <div class="alert alert-success" style="display:none">
+                            <!-- ajax -->
+                        </div>
                         <div class="booking-button">
-                            <button class="button search_button">Book now!<span></span><span></span><span></span></button>
+                            <button class="button search_button" id="search_button1">Book now!<span></span><span></span><span></span></button>
+                            <img src="{{ asset('svg/spinner.svg') }}" style="width:10%; display:none;" id="spinner1">
+                        </div>
+                        <div class="booking-form" id="booking-form1">
+                            <!-- ajax -->
                         </div>
                     </div>
 
@@ -71,7 +82,7 @@
                     </div>
                 </div> -->
 
-                <div class="sidebar_latest_posts" style="margin-top: 7px;">
+                <div class="sidebar_latest_posts">
                     <div class="sidebar_title">Related services</div>
                     <div class="latest_posts_container">
                         <ul>
@@ -204,4 +215,47 @@
         </div>
     </div>
 </div>
+
 @endsection
+
+@section('javascript')
+<script>
+    var Booking = {
+        "get_form" : function(){
+            $.ajax({
+                url: "/booking/get_form/{{ $product->id }}",
+                type: 'get',
+                dataType: 'html',
+                beforeSend : function(){
+                    $("#spinner1").show();
+                }
+            }).done(function(html){
+                $("#booking-form1").html(html);
+                $("input[name='product_id']").val($("#this_id").val());
+                $("#spinner1").hide();
+            }).fail(function(xhr){
+                // ...
+            });
+        }
+    };
+
+    $(document).ready(function()
+    {
+        var current_product_id = "{{ $product->id }}";
+        var you_have_booked = Cookies.get('booked');
+        var product_booked = Cookies.get('product_id');
+        if (you_have_booked) {
+            if (current_product_id==product_booked) {                
+                $(".alert-success").show().html("Your booking has been sent, our reservation will contact you shortly. Thank you.");
+                $(".booking-button, #booking-form1").remove();
+            }
+        }
+        
+        $("#search_button1").on("click", function(){
+            Booking.get_form();
+            $(this).remove();
+        });
+    });
+</script>
+@parent
+@stop
