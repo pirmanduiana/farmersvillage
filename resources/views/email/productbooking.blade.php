@@ -78,7 +78,7 @@
 		}
 		#bodyCell{
 			padding:0px 0px 60px;
-            background-color: #f1f1d5;
+			background-color: #f50800b0;
 		}
 		.t-image{
 			height:auto;
@@ -110,7 +110,7 @@
 		}
         #t-header .columnContainer .dtIcon h1 {		
             font-size: 52px;
-            color: #fafafa;;
+            color: #07021b;
 		}
 		#t-header .columnContainer .dtContent h5 {
 			color:#ffffff;
@@ -118,8 +118,9 @@
 			font-weight: 400;
 		}
 		#t-header .columnContainer .dtContent h1 {
-			color:#ffffff;
-			font-size:1.125em;
+			color:#ffffcc;
+			font-size: 25px;
+			text-transform: uppercase;
 		}
 		#templateBody,#templateFooter{
 			padding-right:36px;
@@ -199,7 +200,7 @@
 			text-align: center;
 		}
 		#t-footer p {
-			color:#414042;
+			color: #ffffcc;
 			font-size: 0.875em;
 			font-weight: 300;
 		}
@@ -211,7 +212,7 @@
 			display: inline-block;
 		}
 		#t-footer #utilityBar a {
-			color:#414042;
+			color: #ffffcc;
 			font-size:0.875em;
 			font-family: 'Open Sans',sans-serif;
 			font-weight: 300;
@@ -277,7 +278,7 @@
 						<tbody>
 							<tr>								
 								<td align="center" bgcolor="#f26762" valign="top" style="background-color:#f26762; background: -webkit-linear-gradient(to right, #f26862, #df5d58);
-								background: linear-gradient(to right, #f26862, #df5d58); padding-right:30px;padding-left:30px">
+								background: linear-gradient(to right, #4e5090, #a3a4c3);; padding-right:30px;padding-left:30px">
 									<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:500px">
 										<tbody>
 											<tr>
@@ -289,7 +290,6 @@
 															</td>
 															<td class="dtContent">
 																<h1>Undagi Farmers Village</h1>
-																<h5>www.undagifarmers.com</h5>
 															</td>
 														</tr>
 													</table>
@@ -302,7 +302,7 @@
 
 							<tr>
 								<td align="center" bgcolor="#f26762" valign="top" style="background-color:#f26762; background: -webkit-linear-gradient(to right, #f26862, #df5d58);
-								background: linear-gradient(to right, #f26862, #df5d58); padding-right:30px; padding-left:30px">
+								background: linear-gradient(to right, #4e5090, #a3a4c3);; padding-right:30px; padding-left:30px">
 									<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 										<tbody>
 											<tr>
@@ -345,7 +345,11 @@
                                             </tr>
                                             <tr>
                                                 <td>Email</td>
-                                                <td><a href="mailto:{{ $data->email }}">{{ $data->email }}</a></td>
+                                                <td>{{ $data->email }}</td>
+                                            </tr>
+											<tr>
+                                                <td>Phone</td>
+                                                <td>{{ $data->phone }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Arrival date</td>
@@ -375,19 +379,13 @@
                                     <tr>
                                         <td valign="top" id="utilityBar">
                                             <div>
-                                                <p>Should you have further inquiries or schedule changes, contact us at any time.</p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" id="footerContent">
-                                            <div>
-												<p> 
+												<p>Should you have further inquiries or schedule changes, contact us at any time.
+													<br>
 													Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <a href="https://undagifarmers.com" target="_blank">Undagi Farmers Village</a>
 												</p>
-											</div>
+                                            </div>
                                         </td>
-									</tr>									
+                                    </tr>                                
                                 </table>
                             </td>
                         </tr>

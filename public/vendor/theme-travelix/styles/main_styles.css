@@ -2018,7 +2018,7 @@ section
 }
 .footer_blog_content
 {
-	padding-left: 81px;
+	/* modified padding-left: 81px; */
 }
 .footer_blog_title
 {

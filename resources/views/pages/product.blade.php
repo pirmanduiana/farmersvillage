@@ -234,7 +234,8 @@
                 $("input[name='product_id']").val($("#this_id").val());
                 $("#spinner1").hide();
             }).fail(function(xhr){
-                // ...
+                $("#spinner1").hide();
+                $("#booking-form1").html("something wrong, while loading the booking form!");
             });
         }
     };

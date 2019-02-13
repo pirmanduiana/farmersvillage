@@ -534,7 +534,6 @@
 							
 							<!-- Footer blog item -->
 							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="{{ asset('vendor/theme-travelix/images/footer_blog_1.jpg') }}" alt="https://unsplash.com/@avidenov"></div>
 								<div class="footer_blog_content">
 									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
 									<div class="footer_blog_date">Nov 29, 2017</div>
@@ -543,7 +542,6 @@
 							
 							<!-- Footer blog item -->
 							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="{{ asset('vendor/theme-travelix/images/footer_blog_2.jpg') }}" alt="https://unsplash.com/@deannaritchie"></div>
 								<div class="footer_blog_content">
 									<div class="footer_blog_title"><a href="blog.html">New destinations for you</a></div>
 									<div class="footer_blog_date">Nov 29, 2017</div>
@@ -558,8 +556,8 @@
 				<div class="col-lg-3 footer_column">
 					<div class="footer_col">
 						<div class="footer_title">Visitors</div>
-						<div class="footer_content footer_tags">
-							<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/482486/t/0"></script>
+						<div class="footer_content footer_tags">							
+							<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/488080/t/1"></script>
 						</div>
 						<!-- <div class="hit_counter">
 							<script type="text/javascript" src="//counter.websiteout.net/js/7/0/0/0"></script>
