@@ -32,6 +32,6 @@ class Productbooking extends Mailable
     {
         $data = $this->request;
         $product = Mstproduct::find($data->product_id);
-        return $this->from('Reservation Undagi Farmers Village')->subject('Thank you for your booking!')->view('email.productbooking', compact('data','product'))->replyTo($data->email, $data->full_name);
+        return $this->from('info@undagifarmers.com')->subject('Undagi Farmers Village - Thank you for your booking!')->view('email.productbooking', compact('data','product'))->replyTo($data->email, $data->full_name);
     }
 }
