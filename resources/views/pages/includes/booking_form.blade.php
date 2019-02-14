@@ -179,7 +179,8 @@ $(function(){
                     }
                 });
             });
-        });        
+            $("#spinner1").hide(); $("#booking-form1 :input").attr("disabled", false);
+        });
     });
 
     $(".select2").select2({
