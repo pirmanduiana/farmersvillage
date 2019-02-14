@@ -17,5 +17,7 @@ Route::group([
     $router->resource('/product-category', 'ProductCategoryController');
     $router->resource('/product', 'ProductController');
     $router->resource('/testimony', 'TestimoniesController');
+    $router->resource('/blog-category', 'BlogcategoryController');
+    $router->resource('/blog', 'BlogController');
 
 });
