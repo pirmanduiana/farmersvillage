@@ -27,11 +27,13 @@
                                     <div class="blog_post_day">{{ date_format($v->created_at,"d") }}</div>
                                     <div class="blog_post_month">{{ date_format($v->created_at,"M, Y") }}</div>
                                 </div>
-                                <div style="text-align:justify;">{!!$v->content!!}</div>
+                                <div style="text-align:justify;">
+                                    {!! strip_tags(substr($v->content, 0, 300)) . "..." !!}
+                                </div>
                             </div>
                         </div>
                         <div class="blog_post_link"><a href="#">read more</a></div>
-                    </div>
+                    </div><br>
                     @endforeach
                 </div>                  
             </div>

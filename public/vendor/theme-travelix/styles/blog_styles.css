@@ -18,9 +18,8 @@
 .blog_post:not(:last-child)
 {
 	/* modified margin-bottom: 74px; */
-	margin-bottom: 35px;
-	border-bottom: solid 1px #e6e7f4;
-    padding-bottom: 19px;
+	margin-bottom: 78px;
+    padding-bottom: 30px;
 }
 /* .blog_post_image
 {
@@ -29,7 +28,8 @@
 .blog_post_image img
 {
 	/* modified width: 100%; */
-	width: 50%;
+	width: 300px;
+    height: 166px;
 }
 .blog_post_date
 {
