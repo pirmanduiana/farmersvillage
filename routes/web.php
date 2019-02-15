@@ -15,7 +15,7 @@ use App\Mstproduct;
 
 Route::get('/', 'BookingController@index');
 
-Route::get('/blog', 'BlogController@index');
+Route::get('/blog/{id?}', 'BlogController@index');
 
 Route::get('/packages', 'PackageController@index');
 
@@ -26,3 +26,6 @@ Route::get('/product/{id}', 'PageController@product_page');
 // the booking
 Route::get('/booking/get_form/{product_id}', 'BookingController@get_booking_form');
 Route::post('/booking/post_form', 'BookingController@post_booking_form');
+
+// the blog parameters
+Route::get('/blog/category/{?category_id}', 'BookingController@blog_by_category_id');

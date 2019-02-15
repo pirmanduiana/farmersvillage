@@ -243,7 +243,8 @@
 }
 .sidebar_archives
 {
-	margin-top: 94px;
+	/* modified margin-top: 94px; */
+	margin-top: 80px;
 }
 .sidebar_title
 {
