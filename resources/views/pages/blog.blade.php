@@ -48,10 +48,10 @@
                             @foreach($latest_post as $g=>$h)
                             <li class="latest_post clearfix">
                                 <div class="latest_post_image">
-                                    <a href="#"><img src="{{ asset('uploads/'.$h->featured_img) }}" alt="{{$company->name}}" style="width: 73px"></a>
+                                    <a href="{{url('/blog/'.$h->id)}}"><img src="{{ asset('uploads/'.$h->featured_img) }}" alt="{{$company->name}}" style="width: 73px"></a>
                                 </div>
                                 <div class="latest_post_content">
-                                    <div class="latest_post_title trans_200"><a href="#">{{$h->title}}</a></div>
+                                    <div class="latest_post_title trans_200"><a href="{{url('/blog/'.$h->id)}}">{{$h->title}}</a></div>
                                     <div class="latest_post_meta">
                                         <div class="latest_post_author trans_200"><a href="#">{{$h->user_full_name}}</a></div>
                                         <div class="latest_post_date trans_200"><a href="#">{{ date_format($h->created_at,"M d, Y") }}</a></div>
