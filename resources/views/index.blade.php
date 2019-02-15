@@ -519,8 +519,8 @@
 						<div class="footer_title">Follow us</div>
 						<div class="footer_content footer_blog">														
 							<ul class="footer_social_list">
-								<li class="footer_social_item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-instagram"></i></a></li>								
+								<li class="footer_social_item"><a href="https://web.facebook.com/Farmers-Village-brSambian-Undagi-584914251904317" target="_blank"><i class="fa fa-facebook-f"></i></a></li>
+								<li class="footer_social_item"><a href="https://www.instagram.com/undagifarmers" target="_blank"><i class="fa fa-instagram"></i></a></li>					
 							</ul>
 						</div>
 					</div>
