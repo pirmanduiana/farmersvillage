@@ -6,99 +6,42 @@
 
             <!-- Blog Content -->
 
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 
                 <div class="blog_post_container">
 
                     <!-- Blog Post -->
-                    
-                    <div class="blog_post">
-                        <div class="blog_post_image">
-                            <img src="{{ asset('vendor/theme-travelix/images/blog_1.jpg') }}" alt="https://unsplash.com/@anniespratt">
-                            <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
-                                <div class="blog_post_day">01</div>
-                                <div class="blog_post_month">Dec, 2017</div>
-                            </div>
-                        </div>
+                    @foreach($all_post as $k=>$v)
+                    <div class="blog_post">                        
+                        <div class="blog_post_title"><a href="#">{{$v->title}}</a></div>
                         <div class="blog_post_meta">
                             <ul>
-                                <li class="blog_post_meta_item"><a href="">by Lore Papp</a></li>
-                                <li class="blog_post_meta_item"><a href="">Uncategorized</a></li>
-                                <li class="blog_post_meta_item"><a href="">3 Comments</a></li>
+                                <li class="blog_post_meta_item"><a href="">by {{$v->user_full_name}}</a></li>
+                                <li class="blog_post_meta_item"><a href="">{{$v->category_name}}</a></li>
                             </ul>
                         </div>
-                        <div class="blog_post_title"><a href="#">Try these new dream destinations</a></div>
                         <div class="blog_post_text">
-                            <p>Aenean in lacus ligula. Phasellus euismod gravida eros. Aenean nec ipsum aliquet, pharetra magna id, interdum sapien. Etiam id lorem eu nisl pellentesque semper. Nullam tincidunt metus placerat, suscipit leo ut, tempus nulla. Fusce at eleifend tellus. Ut eleifend dui nunc, non fermentum qua.</p>
+                            <div class="blog_post_image">
+                                <img src="{{ asset('uploads/'.$v->featured_img) }}" alt="{{$company->name}}"  style="float:left; margin: 0 29px 29px 0;">
+                                <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
+                                    <div class="blog_post_day">{{ date_format($v->created_at,"d") }}</div>
+                                    <div class="blog_post_month">{{ date_format($v->created_at,"M, Y") }}</div>
+                                </div>
+                                <div style="text-align:justify;">{!!$v->content!!}</div>
+                            </div>
                         </div>
                         <div class="blog_post_link"><a href="#">read more</a></div>
                     </div>
-
-                    <!-- Blog Post -->
-                    
-                    <div class="blog_post">
-                        <div class="blog_post_image">
-                            <img src="{{ asset('vendor/theme-travelix/images/blog_2.jpg') }}" alt="https://unsplash.com/@tschax">
-                            <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
-                                <div class="blog_post_day">01</div>
-                                <div class="blog_post_month">Dec, 2017</div>
-                            </div>
-                        </div>
-                        <div class="blog_post_meta">
-                            <ul>
-                                <li class="blog_post_meta_item"><a href="">by Lore Papp</a></li>
-                                <li class="blog_post_meta_item"><a href="">Uncategorized</a></li>
-                                <li class="blog_post_meta_item"><a href="">3 Comments</a></li>
-                            </ul>
-                        </div>
-                        <div class="blog_post_title"><a href="#">Try these new dream destinations</a></div>
-                        <div class="blog_post_text">
-                            <p>Aenean in lacus ligula. Phasellus euismod gravida eros. Aenean nec ipsum aliquet, pharetra magna id, interdum sapien. Etiam id lorem eu nisl pellentesque semper. Nullam tincidunt metus placerat, suscipit leo ut, tempus nulla. Fusce at eleifend tellus. Ut eleifend dui nunc, non fermentum qua.</p>
-                        </div>
-                        <div class="blog_post_link"><a href="#">read more</a></div>
-                    </div>
-
-                    <!-- Blog Post -->
-                    
-                    <div class="blog_post">
-                        <div class="blog_post_image">
-                            <img src="{{ asset('vendor/theme-travelix/images/blog_3.jpg') }}" alt="https://unsplash.com/@stilclassics">
-                            <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
-                                <div class="blog_post_day">01</div>
-                                <div class="blog_post_month">Dec, 2017</div>
-                            </div>
-                        </div>
-                        <div class="blog_post_meta">
-                            <ul>
-                                <li class="blog_post_meta_item"><a href="">by Lore Papp</a></li>
-                                <li class="blog_post_meta_item"><a href="">Uncategorized</a></li>
-                                <li class="blog_post_meta_item"><a href="">3 Comments</a></li>
-                            </ul>
-                        </div>
-                        <div class="blog_post_title"><a href="#">Try these new dream destinations</a></div>
-                        <div class="blog_post_text">
-                            <p>Aenean in lacus ligula. Phasellus euismod gravida eros. Aenean nec ipsum aliquet, pharetra magna id, interdum sapien. Etiam id lorem eu nisl pellentesque semper. Nullam tincidunt metus placerat, suscipit leo ut, tempus nulla. Fusce at eleifend tellus. Ut eleifend dui nunc, non fermentum qua.</p>
-                        </div>
-                        <div class="blog_post_link"><a href="#">read more</a></div>
-                    </div>
-
-                </div>
-                    
-                <div class="blog_navigation">
-                    <ul>
-                        <li class="blog_dot active"><div></div>01.</li>
-                        <li class="blog_dot"><div></div>02.</li>
-                        <li class="blog_dot"><div></div>03.</li>
-                    </ul>
-                </div>
+                    @endforeach
+                </div>                  
             </div>
 
             <!-- Blog Sidebar -->
 
-            <div class="col-lg-4 sidebar_col">
+            <div class="col-lg-3 sidebar_col">
 
                 <!-- Sidebar Search -->
-                <div class="sidebar_search">
+                <!-- <div class="sidebar_search">
                     <form action="#">
                         <input id="sidebar_search_input" type="search" class="sidebar_search_input" placeholder="" required="required">
                         <button id="sidebar_search_button" type="submit" class="sidebar_search_button trans_300" value="Submit">
@@ -125,16 +68,16 @@
                             </svg>
                         </button>
                     </form>
-                </div>
+                </div> -->
                 
                 <!-- Sidebar Archives -->
                 <div class="sidebar_archives">
                     <div class="sidebar_title">Archives</div>
                     <div class="sidebar_list">
                         <ul>
-                            <li><a href="#">March 2017</a></li>
-                            <li><a href="#">April 2017</a></li>
-                            <li><a href="#">May 2017</a></li>
+                            @foreach($archives as $a=>$b)
+                            <li><a href="#">{{$b->month_name ." ". $b->year}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -144,13 +87,9 @@
                     <div class="sidebar_title">Categories</div>
                     <div class="sidebar_list">
                         <ul>
-                            <li><a href="#">Travel</a></li>
-                            <li><a href="#">Exotic Destinations</a></li>
-                            <li><a href="#">City Breaks</a></li>
-                            <li><a href="#">Travel Tips</a></li>
-                            <li><a href="#">Lifestyle & Travel</a></li>
-                            <li><a href="#">City Breaks</a></li>
-                            <li><a href="#">Uncategorized</a></li>
+                            @foreach($categories as $x=>$y)
+                            <li><a href="#">{{$y->name}}</a></li>
+                            @endforeach                            
                         </ul>
                     </div>
                 </div>
@@ -161,63 +100,21 @@
                     <div class="sidebar_title">Latest Posts</div>
                     <div class="latest_posts_container">
                         <ul>
-
                             <!-- Latest Post -->
+                            @foreach($latest_post as $g=>$h)
                             <li class="latest_post clearfix">
                                 <div class="latest_post_image">
-                                    <a href="#"><img src="{{ asset('vendor/theme-travelix/images/latest_1.jpg') }}" alt=""></a>
+                                    <a href="#"><img src="{{ asset('uploads/'.$h->featured_img) }}" alt="{{$company->name}}" style="width: 73px"></a>
                                 </div>
                                 <div class="latest_post_content">
-                                    <div class="latest_post_title trans_200"><a href="#">A simple blog post</a></div>
+                                    <div class="latest_post_title trans_200"><a href="#">{{$h->title}}</a></div>
                                     <div class="latest_post_meta">
-                                        <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
-                                        <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
+                                        <div class="latest_post_author trans_200"><a href="#">{{$v->user_full_name}}</a></div>
+                                        <div class="latest_post_date trans_200"><a href="#">{{ date_format($h->created_at,"M d, Y") }}</a></div>
                                     </div>
                                 </div>
                             </li>
-
-                            <!-- Latest Post -->
-                            <li class="latest_post clearfix">
-                                <div class="latest_post_image">
-                                    <a href="#"><img src="{{ asset('vendor/theme-travelix/images/latest_2.jpg') }}" alt=""></a>
-                                </div>
-                                <div class="latest_post_content">
-                                    <div class="latest_post_title trans_200"><a href="#">Dream destination for you</a></div>
-                                    <div class="latest_post_meta">
-                                        <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
-                                        <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <!-- Latest Post -->
-                            <li class="latest_post clearfix">
-                                <div class="latest_post_image">
-                                    <a href="#"><img src="{{ asset('vendor/theme-travelix/images/latest_3.jpg') }}" alt=""></a>
-                                </div>
-                                <div class="latest_post_content">
-                                    <div class="latest_post_title trans_200"><a href="#">Tips to travel light</a></div>
-                                    <div class="latest_post_meta">
-                                        <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
-                                        <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <!-- Latest Post -->
-                            <li class="latest_post clearfix">
-                                <div class="latest_post_image">
-                                    <a href="#"><img src="{{ asset('vendor/theme-travelix/images/latest_4.jpg') }}" alt=""></a>
-                                </div>
-                                <div class="latest_post_content">
-                                    <div class="latest_post_title trans_200"><a href="#">How to pick your vacation</a></div>
-                                    <div class="latest_post_meta">
-                                        <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
-                                        <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
-                                    </div>
-                                </div>
-                            </li>
-
+                            @endforeach
                         </ul>
                     </div>
                 </div>

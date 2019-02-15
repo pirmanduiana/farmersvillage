@@ -17,15 +17,19 @@
 }
 .blog_post:not(:last-child)
 {
-	margin-bottom: 74px;
+	/* modified margin-bottom: 74px; */
+	margin-bottom: 35px;
+	border-bottom: solid 1px #e6e7f4;
+    padding-bottom: 19px;
 }
-.blog_post_image
+/* .blog_post_image
 {
 
-}
+} */
 .blog_post_image img
 {
-	width: 100%;
+	/* modified width: 100%; */
+	width: 50%;
 }
 .blog_post_date
 {
@@ -50,10 +54,10 @@
 	color: #FFFFFF;
 	margin-top: 3px;
 }
-.blog_post_meta
+/* .blog_post_meta
 {
 	margin-top: 32px;
-}
+} */
 .blog_post_meta_item
 {
 	display: inline-block;

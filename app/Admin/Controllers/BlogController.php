@@ -8,6 +8,7 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
+use Encore\Admin\Facades\Admin;
 use URL;
 use App\Trnblog;
 use App\Mstblogcategory;
@@ -144,6 +145,8 @@ class BlogController extends Controller
         $form->ckeditor('content', 'content')->rules('required');    
         $form->radio('published','published this post?')->options(['0'=>'No', '1'=>'Yes'])->default('0');        
         $form->image('featured_img', 'featured image')->rules('required');
+        $form->hidden('user_id')->value(Admin::user()->id);
+
         return $form;
     }
 }
