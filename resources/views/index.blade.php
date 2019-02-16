@@ -7,6 +7,10 @@
 <meta name="description" content="{{ $company->name }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- contact us -->
+<link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/styles/single_listing_styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/styles/single_listing_responsive.css') }}">
+
 <!-- about us -->
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/styles/about_styles.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/styles/about_responsive.css') }}">
@@ -493,27 +497,6 @@
 	<footer class="footer">
 		<div class="container">
 			<div class="row">
-
-				<!-- Footer Column -->
-				<!-- <div class="col-lg-3 footer_column">
-					<div class="footer_col">
-						<div class="footer_content footer_about">
-							<div class="logo_container footer_logo">
-								<div class="footer_title">Follow us</div>
-							</div>
-							<p class="footer_about_text" style="text-align:justify; margin-top:-16px;">
-								Our social media platforms are managed by our communications and digital teams. We'll keep our content up to date, regular and engaging. Answering any questions or comments you have within 24 hours and signpost you to relevant information that can help.
-							</p>
-							<ul class="footer_social_list">
-								<li class="footer_social_item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-behance"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div> -->
 				<div class="col-lg-3 footer_column">
 					<div class="footer_col">
 						<div class="footer_title">Follow us</div>

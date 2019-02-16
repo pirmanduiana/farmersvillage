@@ -16,7 +16,7 @@
                     <div class="blog_post_day">{{ date_format($blog_post_by_id->created_at,"d") }}</div>
                     <div class="blog_post_month">{{ date_format($blog_post_by_id->created_at,"M, Y") }}</div>
                 </div>
-                <div style="text-align:justify;">
+                <div style="text-align:justify; padding-top: 11px;">
                     {!! $blog_post_by_id->content !!}
                 </div>
             </div>
