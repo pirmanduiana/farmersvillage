@@ -13,6 +13,7 @@ use Mail;
 use App\Mail\Productbooking;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use App\Trnblog;
 
 class BookingController extends Controller
 {
@@ -22,8 +23,9 @@ class BookingController extends Controller
         $products = Mstproduct::join('mst_currency', 'mst_product.currency_id', '=', 'mst_currency.id')->select('mst_product.*',DB::raw('mst_currency.code as currency_code'))->orderBy('mst_product.rating','desc')->orderBy('mst_product.price','desc')->limit(4)->get();
         $testimonies = Trntestimonial::all();
         $company = Syscompany::first();
+        $latest_post = Trnblog::orderBy("created_at","desc")->limit(2)->get();
         
-        return view('pages.booking', compact('products','testimonies','company'));
+        return view('pages.booking', compact('products','testimonies','company','latest_post'));
     }
 
     private function booking_validate_store(Request $request)

@@ -17,16 +17,18 @@
                             <div class="col-lg-6">
                                 <div class="offers_image_container">
                                     <div class="offers_image_background" style="background-image:url({{ asset('uploads/'.$v->featured_img) }})"></div>
-                                    <div class="offer_name"><a href="#">{{ $v->name }}</a></div>
+                                    <div class="offer_name"><a href="#">
+                                        @if($v->show_price==1)
+                                            {{ $v->currency_code ." ". $v->price }}
+                                        @else
+                                            Negotiable price
+                                        @endif
+                                    </a></div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="offers_content">                                    
-                                    @if($v->show_price==1)
-                                    <div class="offers_price">{{ $v->currency_code ." ". $v->price }}<span></span></div>
-                                    @else
-                                    <div class="offers_price">Negotiable price<span></span></div>
-                                    @endif
+                                    <div class="offers_price">{{ $v->name }}<span></span></div>                                    
                                     <div class="rating_r rating_r_{{ $v->rating }} offers_rating" data-rating="{{ $v->rating }}">
                                         <i></i>
                                         <i></i>

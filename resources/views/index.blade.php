@@ -7,6 +7,8 @@
 <meta name="description" content="{{ $company->name }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="icon" href="{{ asset('vendor/theme-travelix/images/favicon.ico') }}">
+
 <!-- contact us -->
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/styles/single_listing_styles.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/theme-travelix/styles/single_listing_responsive.css') }}">
@@ -80,7 +82,7 @@
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="{{ asset('vendor/theme-travelix/images/logo.png') }}" alt="">{{ config('admin.landing-app') }}</a></div>
+							<div class="logo"><a href="#"><img src="{{ asset('vendor/theme-travelix/images/UFV.png') }}" alt=""></a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
@@ -513,24 +515,16 @@
 				<div class="col-lg-3 footer_column">
 					<div class="footer_col">
 						<div class="footer_title">blog</div>
-						<div class="footer_content footer_blog">
-							
+						<div class="footer_content footer_blog">							
 							<!-- Footer blog item -->
+							@foreach($latest_post as $k=>$v)
 							<div class="footer_blog_item clearfix">
 								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
+									<div class="footer_blog_title"><a href="blog.html">{{$v->title}}</a></div>
+									<div class="footer_blog_date">{{ date_format($v->created_at,"M d, Y") }}</div>
 								</div>
 							</div>
-							
-							<!-- Footer blog item -->
-							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">New destinations for you</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
-								</div>
-							</div>
-
+							@endforeach
 						</div>
 					</div>
 				</div>
