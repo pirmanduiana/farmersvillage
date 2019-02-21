@@ -19,8 +19,7 @@
                     @foreach($products as $k=>$v)
                         <div class="offers_item rating_4">
                             <div class="row">
-                                <div class="col-lg-1 temp_col"></div>
-                                <div class="col-lg-3 col-1680-4">
+                                <div class="col-lg-3">
                                     <div class="offers_image_container">
                                         <div class="offers_image_background" style="background-image:url({{ asset('uploads/'.$v->featured_img) }})"></div>
                                         <div class="offer_name"><a href="single_listing.html">                                            
