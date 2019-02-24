@@ -111,63 +111,21 @@
                     <div class="sidebar_title">Latest Posts</div>
                     <div class="latest_posts_container">
                         <ul>
-
                             <!-- Latest Post -->
+                            @foreach($latest_post as $g=>$h)
                             <li class="latest_post clearfix">
                                 <div class="latest_post_image">
-                                    <a href="#"><img src="{{ asset('vendor/theme-travelix/images/latest_1.jpg') }}" alt=""></a>
+                                    <a href="{{url('/blog/'.$h->id)}}"><img src="{{ asset('uploads/'.$h->featured_img) }}" alt="{{$company->name}}" style="width: 73px"></a>
                                 </div>
                                 <div class="latest_post_content">
-                                    <div class="latest_post_title trans_200"><a href="#">A simple blog post</a></div>
+                                    <div class="latest_post_title trans_200"><a href="{{url('/blog/'.$h->id)}}">{{$h->title}}</a></div>
                                     <div class="latest_post_meta">
-                                        <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
-                                        <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
+                                        <div class="latest_post_author trans_200"><a href="#">{{$h->user_full_name}}</a></div>
+                                        <div class="latest_post_date trans_200"><a href="#">{{ date_format($h->created_at,"M d, Y") }}</a></div>
                                     </div>
                                 </div>
                             </li>
-
-                            <!-- Latest Post -->
-                            <li class="latest_post clearfix">
-                                <div class="latest_post_image">
-                                    <a href="#"><img src="{{ asset('vendor/theme-travelix/images/latest_2.jpg') }}" alt=""></a>
-                                </div>
-                                <div class="latest_post_content">
-                                    <div class="latest_post_title trans_200"><a href="#">Dream destination for you</a></div>
-                                    <div class="latest_post_meta">
-                                        <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
-                                        <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <!-- Latest Post -->
-                            <li class="latest_post clearfix">
-                                <div class="latest_post_image">
-                                    <a href="#"><img src="{{ asset('vendor/theme-travelix/images/latest_3.jpg') }}" alt=""></a>
-                                </div>
-                                <div class="latest_post_content">
-                                    <div class="latest_post_title trans_200"><a href="#">Tips to travel light</a></div>
-                                    <div class="latest_post_meta">
-                                        <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
-                                        <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <!-- Latest Post -->
-                            <li class="latest_post clearfix">
-                                <div class="latest_post_image">
-                                    <a href="#"><img src="{{ asset('vendor/theme-travelix/images/latest_4.jpg') }}" alt=""></a>
-                                </div>
-                                <div class="latest_post_content">
-                                    <div class="latest_post_title trans_200"><a href="#">How to pick your vacation</a></div>
-                                    <div class="latest_post_meta">
-                                        <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
-                                        <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
-                                    </div>
-                                </div>
-                            </li>
-
+                            @endforeach
                         </ul>
                     </div>
                 </div>

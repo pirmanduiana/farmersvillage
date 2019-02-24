@@ -7,6 +7,7 @@ use App\Mstproduct;
 use App\Syscompany;
 use DB;
 use App\Trnblog;
+use App\Mstproductcategory;
 
 class PackageController extends Controller
 {
@@ -16,7 +17,8 @@ class PackageController extends Controller
         $products = Mstproduct::join('mst_currency', 'mst_product.currency_id', '=', 'mst_currency.id')->select('mst_product.*',DB::raw('mst_currency.code as currency_code'))->orderBy('mst_product.rating','desc')->orderBy('mst_product.price','desc')->get();
         $company = Syscompany::first();
         $latest_post = Trnblog::orderBy("created_at","desc")->limit(2)->get();
+        $product_categories = Mstproductcategory::orderBy("rating","desc")->get();
         
-        return view('pages.packages', compact('products','company','latest_post'));
+        return view('pages.packages', compact('products','company','latest_post','product_categories'));
     }
 }

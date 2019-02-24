@@ -82,6 +82,13 @@ class ProductCategoryController extends Controller
 
         $grid->id('ID')->sortable();
         $grid->name('Category Name');
+        $grid->rating()->display(function($rating){
+            $stars = "";
+            for ($i=0; $i<$rating; $i++) { 
+                $stars .= "<i class='fa fa-star-o'></i> ";
+            }
+            return $stars;
+        });
         $grid->created_at('Created at');
         $grid->updated_at('Updated at');
 
@@ -117,8 +124,10 @@ class ProductCategoryController extends Controller
 
         $form->display('id', 'ID');
         $form->text('name', 'Product category')->rules('required');
-        $form->display('created_at', 'Created At');
-        $form->display('updated_at', 'Updated At');
+        $form->text('short_desc', 'Short description')->rules('required');
+        $form->number('rating', 'Rating')->rules('required|max:5');
+        $form->divider();
+        $form->image('featured_img', 'Featured image')->rules('required');
 
         return $form;
     }

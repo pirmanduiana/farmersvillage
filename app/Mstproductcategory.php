@@ -9,6 +9,6 @@ class Mstproductcategory extends Model
     //
     protected $table = "mst_product_category";
     protected $fillable = [        
-        'name'
+        'name','short_desc','featured_img'.'rating'
     ];
 }

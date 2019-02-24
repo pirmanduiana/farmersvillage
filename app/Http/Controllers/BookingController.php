@@ -14,6 +14,7 @@ use App\Mail\Productbooking;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use App\Trnblog;
+use App\Mstproductcategory;
 
 class BookingController extends Controller
 {
@@ -24,8 +25,9 @@ class BookingController extends Controller
         $testimonies = Trntestimonial::all();
         $company = Syscompany::first();
         $latest_post = Trnblog::orderBy("created_at","desc")->limit(2)->get();
+        $product_categories = Mstproductcategory::orderBy("rating","desc")->get();
         
-        return view('pages.booking', compact('products','testimonies','company','latest_post'));
+        return view('pages.booking', compact('products','testimonies','company','latest_post','product_categories'));
     }
 
     private function booking_validate_store(Request $request)

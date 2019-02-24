@@ -150,51 +150,21 @@
 	<div class="home">
 		
 		<!-- Home Slider -->
-
-		<div class="home_slider_container">
-			
+		<div class="home_slider_container">			
 			<div class="owl-carousel owl-theme home_slider">
-
 				<!-- Slider Item -->
+				@foreach($product_categories as $k=>$c)
 				<div class="owl-item home_slider_item">
-					<!-- Image by https://unsplash.com/@anikindimitry -->
-					<div class="home_slider_background" style="background-image:url({{ asset('vendor/theme-travelix/images/batur-2.jpg') }})"></div>
-
+					<div class="home_slider_background" style="background-image:url({{asset('uploads/'.$c->featured_img)}})"></div>
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>Batur</h1>
-							<h1>Holy spring water</h1>
+							<h1>{{$c->name}}</h1>
+							<h1>{{$c->short_desc}}</h1>
 							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">more<span></span><span></span><span></span></a></div>
 						</div>
 					</div>
 				</div>
-
-				<!-- Slider Item -->
-				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url({{ asset('vendor/theme-travelix/images/trekking-1.jpg') }})"></div>
-
-					<div class="home_slider_content text-center">
-						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>Rice field</h1>
-							<h1>trekking</h1>
-							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">more<span></span><span></span><span></span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slider Item -->
-				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url({{ asset('vendor/theme-travelix/images/activities-5.jpg') }})"></div>
-
-					<div class="home_slider_content text-center">
-						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>Become</h1>
-							<h1>a villagers</h1>
-							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">more<span></span><span></span><span></span></a></div>
-						</div>
-					</div>
-				</div>
-
+				@endforeach
 			</div>
 			
 			<!-- Home Slider Nav - Prev -->
@@ -237,9 +207,10 @@
 
 			<div class="home_slider_dots">
 				<ul id="home_slider_custom_dots" class="home_slider_custom_dots">
-					<li class="home_slider_custom_dot active"><div></div>01.</li>
-					<li class="home_slider_custom_dot"><div></div>02.</li>
-					<li class="home_slider_custom_dot"><div></div>03.</li>
+					@php $i=1; @endphp
+					@foreach($product_categories as $k=>$c)
+						<li class="home_slider_custom_dot {{ $i==1 ? 'active' : '' }}"><div></div>{{$i++}}</li>
+					@endforeach
 				</ul>
 			</div>
 			
@@ -276,19 +247,18 @@
 					<div class="search_panel active">
 						<form action="#" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
-								<div>destination</div>
-								<input type="text" class="destination search_input" required="required">
+								<div>category</div>
+								<select name="category_id" class="destination search_input">
+									<option>Tour & Activity</option>
+									<option>Transportation</option>
+								</select>
 							</div>
 							<div class="search_item">
-								<div>check in</div>
-								<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-							</div>
+								<div>activity date</div>
+								<input type="text" class="check_in search_input date" placeholder="YYYY-MM-DD">
+							</div>							
 							<div class="search_item">
-								<div>check out</div>
-								<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>adults</div>
+								<div>pax</div>
 								<select name="adults" id="adults_1" class="dropdown_item_select search_input">
 									<option>01</option>
 									<option>02</option>
@@ -296,13 +266,12 @@
 								</select>
 							</div>
 							<div class="search_item">
-								<div>children</div>
-								<select name="children" id="children_1" class="dropdown_item_select search_input">
-									<option>0</option>
-									<option>02</option>
-									<option>03</option>
+								<div>currency</div>
+								<select name="currency_id" class="destination search_input">
+									<option>USD</option>
+									<option>IDR</option>
 								</select>
-							</div>
+							</div>							
 							<button class="button search_button">search<span></span><span></span><span></span></button>
 						</form>
 					</div>
@@ -594,7 +563,7 @@
 								<li class="footer_nav_item"><a href="/aboutus">about us</a></li>
 								<li class="footer_nav_item"><a href="/packages">all packages</a></li>
 								<li class="footer_nav_item"><a href="/blog">blog</a></li>
-								<li class="footer_nav_item"><a href="contact.html">contact</a></li>
+								<!-- <li class="footer_nav_item"><a href="contact.html">contact</a></li> -->
 							</ul>
 						</div>
 					</div>
@@ -604,6 +573,16 @@
 	</div>
 
 </div>
+
+<script src="{{ asset('vendor/theme-travelix/js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('vendor/theme-travelix/styles/bootstrap4/popper.js') }}"></script>
+<script src="{{ asset('vendor/theme-travelix/styles/bootstrap4/bootstrap.min.js') }}"></script>
+<script src="{{ asset('vendor/theme-travelix/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
+<script src="{{ asset('vendor/theme-travelix/plugins/easing/easing.js') }}"></script>
+<script src="{{ asset('vendor/theme-travelix/js/custom.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="{{ asset('vendor/adminlte/datepicker/bootstrap-datepicker.min.js') }}"></script>
 
 <!-- WhatsHelp.io widget -->
 <script type="text/javascript">
@@ -621,19 +600,21 @@
         var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
         s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
         var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-    })();
+	})();
+	
+	$('.date').datepicker({
+        format: "yyyy/mm/dd",        
+        todayBtn: "linked",
+        autoclose: true,
+        todayHighlight: true
+	});
+	$(".select2").select2({
+        placeholder: "Select a country",
+        allowClear: true,
+        dropdownParent: $('.modal')
+    });
 </script>
 <!-- /WhatsHelp.io widget -->
-
-<script src="{{ asset('vendor/theme-travelix/js/jquery-3.2.1.min.js') }}"></script>
-<script src="{{ asset('vendor/theme-travelix/styles/bootstrap4/popper.js') }}"></script>
-<script src="{{ asset('vendor/theme-travelix/styles/bootstrap4/bootstrap.min.js') }}"></script>
-<script src="{{ asset('vendor/theme-travelix/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
-<script src="{{ asset('vendor/theme-travelix/plugins/easing/easing.js') }}"></script>
-<script src="{{ asset('vendor/theme-travelix/js/custom.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-<script src="{{ asset('vendor/adminlte/datepicker/bootstrap-datepicker.min.js') }}"></script>
 
 @yield('javascript')
 
