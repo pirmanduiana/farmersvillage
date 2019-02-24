@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <h2 class="section_title">All packages</h2>
+                <h2 class="section_title">{{ $products->isEmpty() ? "No result!" : "Packages"}}</h2>
             </div>
         </div>
         <div class="row">            

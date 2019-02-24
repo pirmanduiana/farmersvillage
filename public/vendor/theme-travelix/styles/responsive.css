@@ -150,8 +150,9 @@
 	.search
 	{
 		height: auto;
-		padding-top: 100px;
-		padding-bottom: 100px;
+		/* modified: padding-top: 100px; */
+		padding-top: 0px;
+		padding-bottom: 53px;
 	}
 	.search_tabs_container
 	{
@@ -182,7 +183,7 @@
 	.search_panel
 	{
 		display: none !important;
-		margin-top: 50px;
+		/* modified: margin-top: 50px; */
 	}
 	.search_panel.active
 	{

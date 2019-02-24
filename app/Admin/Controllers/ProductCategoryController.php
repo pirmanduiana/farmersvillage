@@ -82,6 +82,7 @@ class ProductCategoryController extends Controller
 
         $grid->id('ID')->sortable();
         $grid->name('Category Name');
+        $grid->short_desc('Short desc.');
         $grid->rating()->display(function($rating){
             $stars = "";
             for ($i=0; $i<$rating; $i++) { 

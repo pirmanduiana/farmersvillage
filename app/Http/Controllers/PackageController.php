@@ -21,4 +21,20 @@ class PackageController extends Controller
         
         return view('pages.packages', compact('products','company','latest_post','product_categories'));
     }
+
+    public function get_by_parameters(Request $request)
+    {
+        $products = Mstproduct::select("*");
+        foreach($request->except('_token') as $k=>$v){
+            if (!empty($v)) {
+                $products = $products->where($k, $v);
+            }
+        }
+        $products = $products->get();
+        $company = Syscompany::first();
+        $latest_post = Trnblog::orderBy("created_at","desc")->limit(2)->get();
+        $product_categories = Mstproductcategory::orderBy("rating","desc")->get();
+        session()->flashInput($request->input());
+        return view('pages.packages', compact('products','company','latest_post','product_categories'));
+    }
 }

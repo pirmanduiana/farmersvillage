@@ -29,3 +29,6 @@ Route::post('/booking/post_form', 'BookingController@post_booking_form');
 
 // the blog parameters
 Route::get('/blog/category/{?category_id}', 'BookingController@blog_by_category_id');
+
+// the packages parameters
+Route::post('/packages/get', 'PackageController@get_by_parameters');

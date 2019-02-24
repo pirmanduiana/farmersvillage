@@ -160,7 +160,14 @@
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
 							<h1>{{$c->name}}</h1>
 							<h1>{{$c->short_desc}}</h1>
-							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">more<span></span><span></span><span></span></a></div>
+							<form action="{{ url('/packages/get') }}" method="post">
+							@csrf
+								<input type="hidden" name="category_id" value="{{ $c->id }}">
+								<div class="button home_slider_button">
+									<div class="button_bcg"></div>
+									<a href="#" class="btn_search_by_category">more<span></span><span></span><span></span></a>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -245,34 +252,36 @@
 					<!-- Search Panel -->
 
 					<div class="search_panel active">
-						<form action="#" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+						<form action="{{ url('/packages/get') }}" method="post" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+						@csrf
 							<div class="search_item">
 								<div>category</div>
 								<select name="category_id" class="destination search_input">
-									<option>Tour & Activity</option>
-									<option>Transportation</option>
+									<option value="">all</option>
+									@foreach(App\Mstproductcategory::all() as $k=>$c)
+									<option value="{{$c->id}}" {{ old('category_id')==$c->id ? "selected" : "" }}>{{$c->name}}</option>
+									@endforeach
 								</select>
-							</div>
-							<div class="search_item">
-								<div>activity date</div>
-								<input type="text" class="check_in search_input date" placeholder="YYYY-MM-DD">
-							</div>							
+							</div>						
 							<div class="search_item">
 								<div>pax</div>
-								<select name="adults" id="adults_1" class="dropdown_item_select search_input">
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
+								<select name="max_pax" id="pax_1" class="dropdown_item_select search_input">
+									<option value="">all</option>
+									@for($i=1; $i<=10; $i++)
+									<option value="{{$i}}" {{ old('max_pax')==$i ? "selected" : "" }}>{{$i}}</option>
+									@endfor							
 								</select>
 							</div>
 							<div class="search_item">
 								<div>currency</div>
 								<select name="currency_id" class="destination search_input">
-									<option>USD</option>
-									<option>IDR</option>
+									<option value="">all</option>
+									@foreach(App\Mstcurrency::all() as $k=>$r)
+									<option value="{{$r->id}}" {{ old('currency_id')==$r->id ? "selected" : "" }}>{{$r->code}}</option>
+									@endforeach
 								</select>
 							</div>							
-							<button class="button search_button">search<span></span><span></span><span></span></button>
+							<button class="button search_button" id="search_product1">search<span></span><span></span><span></span></button>
 						</form>
 					</div>
 
@@ -584,8 +593,9 @@
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <script src="{{ asset('vendor/adminlte/datepicker/bootstrap-datepicker.min.js') }}"></script>
 
-<!-- WhatsHelp.io widget -->
+
 <script type="text/javascript">
+
 	var phone_number = " {{ $company->main_phone }}"; 
     (function () {
         var options = {
@@ -612,9 +622,31 @@
         placeholder: "Select a country",
         allowClear: true,
         dropdownParent: $('.modal')
-    });
+	});
+	
+	$("a.btn_search_by_category").on("click", function(){
+		$(this).parents('form').submit();
+	});
+
+	/*
+	* Maintain / Keep scroll position after post-back / postback / refresh. Just include plugin (no need for cookies)	
+	*/
+	(function($){
+	window.onbeforeunload = function(e){    
+	window.name += ' [' + $(window).scrollTop().toString() + '[' + $(window).scrollLeft().toString();
+	};
+	$.maintainscroll = function() {
+	if(window.name.indexOf('[') > 0)
+	{
+	var parts = window.name.split('['); 
+	window.name = $.trim(parts[0]);
+	window.scrollTo(parseInt(parts[parts.length - 1]), parseInt(parts[parts.length - 2]));
+	}   
+	};  
+	$.maintainscroll();
+	})(jQuery);
+
 </script>
-<!-- /WhatsHelp.io widget -->
 
 @yield('javascript')
 
