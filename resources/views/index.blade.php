@@ -90,7 +90,7 @@
 								<li class="main_nav_item"><a href="/aboutus">about us</a></li>
 								<li class="main_nav_item"><a href="/packages">all packages</a></li>
 								<li class="main_nav_item"><a href="/blog">blog</a></li>
-								<li class="main_nav_item"><a href="contact.html">contact</a></li>
+								<!-- <li class="main_nav_item"><a href="contact.html">contact</a></li> -->
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -140,7 +140,7 @@
 				<li class="main_nav_item"><a href="/aboutus">about us</a></li>
 				<li class="main_nav_item"><a href="/packages">all packages</a></li>
 				<li class="main_nav_item"><a href="/blog">blog</a></li>
-				<li class="main_nav_item"><a href="contact.html">contact</a></li>
+				<!-- <li class="main_nav_item"><a href="contact.html">contact</a></li> -->
 			</ul>
 		</div>
 	</div>

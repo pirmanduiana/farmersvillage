@@ -24,7 +24,7 @@
                                         <div class="offers_image_background" style="background-image:url({{ asset('uploads/'.$v->featured_img) }})"></div>
                                         <div class="offer_name"><a href="single_listing.html">                                            
                                             @if($v->show_price==1)
-                                                {{ $v->currency_code ." ". $v->price }}
+                                                {{ $v->currency_code ." ". number_format($v->price, 2) }}
                                             @else
                                                 Negotiable price
                                             @endif
