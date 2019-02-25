@@ -200,6 +200,8 @@
 
     $(document).ready(function()
     {
+        $('html, body').animate({ scrollTop: $('.search').offset().top }, 'fast');
+        
         var current_product_id = "{{ $product->id }}";
         var you_have_booked = Cookies.get('booked');
         var product_booked = Cookies.get('product_id');
