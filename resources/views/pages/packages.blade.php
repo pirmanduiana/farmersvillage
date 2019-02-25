@@ -74,7 +74,11 @@
 @section('javascript')
 <script>
     $(document).ready(function(){
+        
         console.log("all packages");
+
+        $('html, body').animate({ scrollTop: $('.home_slider_custom_dots').offset().top }, 'fast');
+
     });
 </script>
 @parent

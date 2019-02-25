@@ -160,7 +160,7 @@
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
 							<h1>{{$c->name}}</h1>
 							<h1>{{$c->short_desc}}</h1>
-							<form action="{{ url('/packages/get') }}" method="post">
+							<form action="{{ url('/packages') }}" method="post">
 							@csrf
 								<input type="hidden" name="category_id" value="{{ $c->id }}">
 								<div class="button home_slider_button">
@@ -252,7 +252,7 @@
 					<!-- Search Panel -->
 
 					<div class="search_panel active">
-						<form action="{{ url('/packages/get') }}" method="post" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+						<form action="{{ url('/packages') }}" method="post" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 						@csrf
 							<div class="search_item">
 								<div>category</div>
@@ -631,20 +631,20 @@
 	/*
 	* Maintain / Keep scroll position after post-back / postback / refresh. Just include plugin (no need for cookies)	
 	*/
-	(function($){
-	window.onbeforeunload = function(e){    
-	window.name += ' [' + $(window).scrollTop().toString() + '[' + $(window).scrollLeft().toString();
-	};
-	$.maintainscroll = function() {
-	if(window.name.indexOf('[') > 0)
-	{
-	var parts = window.name.split('['); 
-	window.name = $.trim(parts[0]);
-	window.scrollTo(parseInt(parts[parts.length - 1]), parseInt(parts[parts.length - 2]));
-	}   
-	};  
-	$.maintainscroll();
-	})(jQuery);
+	// (function($){
+	// window.onbeforeunload = function(e){    
+	// window.name += ' [' + $(window).scrollTop().toString() + '[' + $(window).scrollLeft().toString();
+	// };
+	// $.maintainscroll = function() {
+	// if(window.name.indexOf('[') > 0)
+	// {
+	// var parts = window.name.split('['); 
+	// window.name = $.trim(parts[0]);
+	// window.scrollTo(parseInt(parts[parts.length - 1]), parseInt(parts[parts.length - 2]));
+	// }   
+	// };  
+	// $.maintainscroll();
+	// })(jQuery);
 
 </script>
 

@@ -107,3 +107,16 @@
     </div>
 </div>
 @endsection
+
+@section('javascript')
+<script>
+    $(document).ready(function(){
+        
+        console.log("all blog");
+
+        $('html, body').animate({ scrollTop: $('.search').offset().top }, 'fast');
+
+    });
+</script>
+@parent
+@stop

@@ -18,6 +18,7 @@ Route::get('/', 'BookingController@index');
 Route::get('/blog/{id?}', 'BlogController@index');
 
 Route::get('/packages', 'PackageController@index');
+Route::post('/packages', 'PackageController@get_by_parameters');
 
 Route::get('/aboutus', 'PageController@about_page');
 
@@ -29,6 +30,3 @@ Route::post('/booking/post_form', 'BookingController@post_booking_form');
 
 // the blog parameters
 Route::get('/blog/category/{?category_id}', 'BookingController@blog_by_category_id');
-
-// the packages parameters
-Route::post('/packages/get', 'PackageController@get_by_parameters');

@@ -24,7 +24,8 @@ class PackageController extends Controller
 
     public function get_by_parameters(Request $request)
     {
-        $products = Mstproduct::select("*");
+        $products = Mstproduct::join("mst_currency","mst_product.currency_id","=","mst_currency.id")
+        ->select("mst_product.*",DB::raw("mst_currency.code as currency_code"));
         foreach($request->except('_token') as $k=>$v){
             if (!empty($v)) {
                 $products = $products->where($k, $v);
