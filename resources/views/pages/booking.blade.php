@@ -68,7 +68,7 @@
         <div class="travelix_map" style="margin-top: 54px;">
             <div id="google_map" class="google_map">
                 <div class="map_container">
-                    <iframe width="100%" height="393" id="gmap_canvas" src="https://maps.google.com/maps?q=beji%20batur%20sambian%20undagi&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    <iframe width="100%" height="393" id="gmap_canvas" src="https://maps.google.com/maps?q=undagi%20farmers%20village&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                 </div>
             </div>
         </div>
